@@ -5,12 +5,12 @@
     android:layout_marginRight="0.2dp"
     android:layout_marginBottom="0.2dp"
     android:background="#fff"
+    android:clickable="true"
     >
     <TextView
         android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="54.5dp"
-        android:clickable="true"
         android:background="?android:attr/selectableItemBackground"
         android:layout_centerInParent="true"
         android:gravity="center"

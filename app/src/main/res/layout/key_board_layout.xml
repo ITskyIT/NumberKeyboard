@@ -1,42 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/key_board_rv"
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:id="@+id/dialog_ll_one"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#ffffff"
+        >
+        <EditText
+            android:text=""
+            android:id="@+id/board_phone"
+            android:textSize="22sp"
+            android:layout_centerInParent="true"
+            android:textColor="#333333"
+            android:maxLength="11"
+            android:inputType="number"
+            android:enabled="false"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_verify_phone"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/pay_icon_select"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#dddddd"
+        >
+        <TextView
+            android:id="@+id/board_hint_tv"
+            android:text="点击确定立即发送验证码"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dialog_ll_two"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <RelativeLayout
-            android:id="@+id/key_board_close"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:clickable="true"
-            android:background="#eee"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_height="75dp"
+            android:background="#ffffff"
+            >
+            <EditText
+                android:id="@+id/board_verify"
+                android:textSize="22sp"
+                android:layout_centerInParent="true"
+                android:textColor="#333333"
+                android:maxLength="6"
+                android:textColorHint="#999999"
+                android:hint="输入验证码"
+                android:inputType="number"
+                android:enabled="false"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <ImageView
-                android:src="@mipmap/delete"
+                android:id="@+id/iv_back"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pay_icon_select"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#dddddd"
+            >
+            <TextView
+                android:id="@+id/board_two_hint"
+                android:text="验证码已发  "
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="发送验证码"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-        <TextView
-            android:id="@+id/key_board_sure"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:orientation="horizontal"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/key_board_rv"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="220dp">
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="确定"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:background="#00CAA3"
-            />
+            android:orientation="vertical"
+            android:layout_height="220dp">
+            <RelativeLayout
+                android:id="@+id/key_board_close"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#eee"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:src="@mipmap/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/key_board_sure"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="确定"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:background="#00CAA3"
+                />
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
