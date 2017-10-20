@@ -27,6 +27,7 @@ import java.util.Map;
 
 /**
  * 自定义面积 租金 dialog
+ * @author tian
  */
 
 public class InputBoardDialog extends Dialog{
@@ -39,17 +40,26 @@ public class InputBoardDialog extends Dialog{
     private KeyBoardAdapter adapter;
     private EditText etContent;
     private OnDialogResultListener onDialogResultListener;
-    private String initialValue = ""; //  初始值
-    private String unit = "元";    //  rent 租金 area 面积
-    private int MAX_LENGTH = 10;
-    public InputBoardDialog(Context context, @NonNull String value, String tag) {
+    /**
+     * 初始值
+     */
+    private String initialValue = "";
+    /**
+     * 金额 元 --- 面积 ㎡
+     */
+    private String unit = "元";
+    /**
+     * 可输入最大长度 默认10
+     */
+    private int maxLength = 10;
+    public InputBoardDialog(Context context, @NonNull String value, String unit) {
         super(context, R.style.Theme_Dialog_From_Bottom);
         this.context=context;
         initialValue = value;
-        if (tag != null) {
-            unit = tag;
-            if (tag.equals("㎡")) {
-                MAX_LENGTH = 6;
+        if (unit != null) {
+            this.unit = unit;
+            if ("㎡".equals(unit)) {
+                maxLength = 6;
             }
         }
         setContentView(R.layout.input_board_layout);
@@ -60,19 +70,17 @@ public class InputBoardDialog extends Dialog{
         initDialog();
         initListener();
     }
-
     public void setOnDialogResultListener(OnDialogResultListener onDialogResultListener) {
         this.onDialogResultListener = onDialogResultListener;
     }
-
     private void initListener() {
         adapter.setmOnItemClickListener(new KeyBoardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                if (etContent.getText().toString().length() <= 0 && position ==10) {
+                if (etContent.getText().toString().length() <= 0 && position == 10) {
                     return;
                 }
-                if (etContent.getText().toString().length() >= MAX_LENGTH-1) {
+                if (etContent.getText().toString().length() >= maxLength -1) {
                     return;
                 }
                 if (position != 9 && position != 11) {
@@ -149,7 +157,7 @@ public class InputBoardDialog extends Dialog{
         sure = (TextView) findViewById(R.id.key_board_sure);
         etContent = (EditText) findViewById(R.id.board_phone);
         board_hint_tv = (TextView) findViewById(R.id.board_hint_tv);
-        if (unit.equals("㎡")) {
+        if ("㎡".equals(unit)) {
             board_hint_tv.setText("请输入面积");
         }
         forbidKeyBoard();
@@ -196,6 +204,10 @@ public class InputBoardDialog extends Dialog{
      * 结果监听回调
      */
     public interface OnDialogResultListener {
+        /**
+         * 结果
+         * @param result
+         */
         void onResult(String result);
     }
     /**

@@ -2,13 +2,15 @@ package com.tian.numberkeyboard;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.tian.numberkeyboard.dialog.InputBoardDialog;
-import com.tian.numberkeyboard.dialog.KeyBoardDialog;
+import com.tian.numberkeyboard.dialog.PhoneBoardDialog;
 
+/**
+ * @author tian
+ */
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +18,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void doClick (View view) {
-        KeyBoardDialog dialog = new KeyBoardDialog(this);
+        PhoneBoardDialog dialog = new PhoneBoardDialog(this,"18236123463");
         dialog.show();
-        dialog.setOnDialogResultListener(new KeyBoardDialog.OnDialogResultListener() {
+        dialog.setOnDialogResultListener(new PhoneBoardDialog.OnDialogResultListener() {
             @Override
             public void onResult(String result) {
-                Log.e("onDissMiss",result);
+                if (result.equals("some")) {
+                    Toast.makeText(MainActivity.this, "此手机号无需再次验证", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

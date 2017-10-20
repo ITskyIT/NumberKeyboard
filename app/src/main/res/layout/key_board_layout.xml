@@ -77,11 +77,11 @@
                 android:layout_height="wrap_content" />
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="12dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/pay_icon_select"
+                android:src="@mipmap/back2"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="发送验证码"
+                android:text="倒计时（自己写）"
                 android:textSize="12sp"
                 android:textColor="#999999"
                 android:layout_centerVertical="true"
@@ -147,7 +147,7 @@
                 android:textColor="#fff"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:background="#00CAA3"
+                android:background="@drawable/key_board_sure_selector"
                 />
     </LinearLayout>
     </LinearLayout>
